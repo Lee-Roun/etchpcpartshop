@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
+import { Layout } from '../components/Layout';
+import { Link } from "react-router-dom";
+import Footer from '../components/Footer';
 
-export class Login extends Component {
-    render() { 
-        return (  
-            <div>
-                <h3>Hello from User</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-        );
+export default class Login extends Component {
+    render() {
+        return (
+            <React.Fragment>
+                <Layout>
+                    <div>
+                        <h1>Hello from login</h1>
+                    </div>
+                    <Link to="/signup" className="btn-primary">
+                        회원 가입
+          </Link>
+                </Layout>
+                <Footer />
+            </React.Fragment>
+
+        )
     }
 }
