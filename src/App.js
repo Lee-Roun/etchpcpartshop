@@ -7,9 +7,9 @@ import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+import SignUp from "./pages/Signup";
 
-import Navbar from "./components/Navigationbar";
+import Navbar from "./components/NavigationBar";
 
 import { Switch, Route } from "react-router-dom";
 
