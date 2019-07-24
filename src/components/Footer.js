@@ -1,11 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Title from './Title';
 
 export default class Footer extends Component {
     render() {
         return (
-            <div>
-                <h3>Hello from Footer</h3>
-            </div>
+            <section className="footer">
+                <Title title="Footer" />
+                <div className="services-center">
+                    Hello Footer
+                </div>
+            </section>
         )
     }
 }

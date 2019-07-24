@@ -1,37 +1,33 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { Contact } from './pages/Contact';
-import { NoMatch } from './pages/NoMatch';
-import { Detail } from './pages/Details';
-import { Login } from './pages/Login';
-import { ProductList } from './pages/ProductList';
-import { Layout } from './components/Layout';
-import { NavigationBar } from './components/NavigationBar';
+import React from "react";
+import "./App.css";
 
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Detail from "./pages/Detail";
+import NoMatch from "./pages/NoMatch";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import SignUp from "./pages/Signup";
 
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Router>
-          <NavigationBar />
-          <Layout>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/about" component={About} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/shop" component={ProductList} />
-              <Route path="/detail" component={Detail} />
-              <Route path="/login" component={Login} />
-              <Route component={NoMatch} />
-            </Switch>
-          </Layout>
-        </Router>
-      </React.Fragment>
-    );
-  }
+import Navigationbar from "./components/NavigationBar";
+
+import { Switch, Route } from "react-router-dom";
+
+function App() {
+  return (
+    <>
+      <Navigationbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/shop/" component={Products} />
+        <Route exact path="/products/:shot" component={Detail} />
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route component={NoMatch} />
+      </Switch>
+    </>
+  );
 }
 
 export default App;

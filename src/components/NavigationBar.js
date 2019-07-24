@@ -1,53 +1,53 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { FaAlignRight } from "react-icons/fa";
+import logo from "../logo.svg";
 
-const Styles = styled.div`
-  .navbar {
-    background-color: #050505;
+export default class Navigationbar extends Component {
+  state = {
+    isOpen: false
+  };
+  handleToggle = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
+  render() {
+    return (
+      <nav className="navbar">
+
+        <div className="nav-header">
+          <Link to="/">
+            <img src={logo} alt="PC part SHOP" />
+          </Link>
+
+        </div>
+        <div className="nav-center">
+
+          <button
+            type="button"
+            className="nav-btn"
+            onClick={this.handleToggle}
+          >
+            <FaAlignRight className="nav-icon" />
+          </button>
+        </div>
+        <ul
+          className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}
+        >
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/shop">Shop</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact us</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </ul>
+
+      </nav>
+    );
   }
-
-  a, .navbar-brand, .navbar-nav .nav-link {
-    color: #c7c7c7;
-
-    &:hover {
-      color: #c7051e;
-      text-decoration: none;
-    }
-  }
-`;
-
-export const NavigationBar = () => (
-  <Styles>
-    <Navbar expand="lg">
-      <Navbar.Brand href="/">ETCH SHOP</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Nav className="justify-content-center">
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-primary">Search</Button>
-        </Form>
-      </Nav>
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/">Home</Link>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/about">About</Link>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/contact">Contact</Link>
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  </Styles >
-)
+}
